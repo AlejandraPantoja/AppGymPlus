@@ -8,7 +8,8 @@ from .views import LoginView,HorariosDisponiblesView,reservar_clase,LogoutView,c
 
 urlpatterns = [
     path('api/miembros/', views.registrar_miembro, name='registrar_miembro'),
-    path('login/', LoginView.as_view(), name='login'),
+    #path('login/', LoginView.as_view(), name='login'),
+    path('login/', lambda request: redirect('/')),
     path('horarios/', HorariosDisponiblesView.as_view(), name='horarios_disponibles'),
     path('reservar/', reservar_clase, name='reservar_clase'),
     path('logout/', LogoutView.as_view(), name='logout'),
