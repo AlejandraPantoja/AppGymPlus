@@ -23,7 +23,7 @@ from django.views.decorators.cache import never_cache
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('miembros.urls')),  # <-- Cambia 'tu_app' por el nombre real de tu app
-    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),  # <-- esto sirve el Angular app
+    re_path(r'^.*$', never_cache(TemplateView.as_view(template_name='index.html'))),
 ]
 
 
