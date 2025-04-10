@@ -15,19 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 from django.views.decorators.cache import never_cache
 
 
-
-
-from django.contrib import admin
-from django.urls import path, include
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('miembros.urls')),  # <-- Cambia 'tu_app' por el nombre real de tu app
+    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),  # <-- esto sirve el Angular app
 ]
 
 

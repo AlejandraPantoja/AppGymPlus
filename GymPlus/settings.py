@@ -58,7 +58,7 @@ ROOT_URLCONF = 'GymPlus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'dist', 'frontend','browser')],
+        'DIRS': [os.path.join(BASE_DIR, 'angular_build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,7 +131,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'dist', 'frontend'),
+      os.path.join(BASE_DIR, 'angular_build'),
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -151,4 +151,5 @@ SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SAMESITE = None
 CSRF_COOKIE_SECURE = False
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #⚠️ Nota: SESSION_COOKIE_SECURE = False y CSRF_COOKIE_SECURE = False son para desarrollo local. En producción deben ir en True si usas HTTPS.
