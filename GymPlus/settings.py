@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'miembros',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +154,10 @@ CSRF_COOKIE_SECURE = False
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #⚠️ Nota: SESSION_COOKIE_SECURE = False y CSRF_COOKIE_SECURE = False son para desarrollo local. En producción deben ir en True si usas HTTPS.
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  # Solo si querés la vista web
+    )
+}
